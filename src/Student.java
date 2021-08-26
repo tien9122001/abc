@@ -1,8 +1,14 @@
 public class Student implements Comparable<Student>{
     private String id;
-
+    private int age;
     public Student(){
 
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
     public String getId() {
         return id;
@@ -10,8 +16,9 @@ public class Student implements Comparable<Student>{
     public void setId(String id) {
         this.id = id;
     }
-    public Student(String id){
+    public Student(String id, int age){
         this.setId(id);
+        this.setAge(age);
     }
     
     @Override
@@ -25,6 +32,13 @@ public class Student implements Comparable<Student>{
     }
     @Override
     public int compareTo(Student o) {
-        return this.id.compareTo(o.getId());
+        //return this.id.compareTo(o.getId());
+        if(this.getAge() > o.getAge()){
+            return 5;
+        }else if(this.getAge() < o.getAge()){
+            return -5;
+        }else {
+            return 0;
+        }
     }
 }
